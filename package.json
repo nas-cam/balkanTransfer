@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.14.2"
+    "@testing-library/cypress": "^10.0.2",
+    "cypress": "^13.14.2",
+    "cypress-xpath": "^2.0.1"
   },
   "dependencies": {
     "dotenv": "^16.4.5"
