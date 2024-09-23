@@ -1,10 +1,14 @@
-const { defineConfig } = require("cypress");
+require('dotenv').config({ path: '.env.stg' });
+import { defineConfig } from "cypress";
 
-module.exports = defineConfig({
+
+export default defineConfig({
   e2e: {
-    baseUrl: 'https://staging.balkantransfer.com',
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      config.baseUrl = process.env.CYPRESS_BASE_URL;
+
+      return config;
     },
   },
 });
