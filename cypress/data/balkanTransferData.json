@@ -1,0 +1,19 @@
+{
+  "loginCredentials": {
+
+ "email": "nasveta.c@gmail.com",
+ "password": "Test1234!!??"
+
+  },
+
+  "searchFormData":{
+    "from": "Brčko",
+    "to": "Sarajevo Airport",
+    "pickupAddress": "Evlije Čelebije 16"
+  },
+
+  "pickupAddress":{
+    "pickupAddress": "Evlije Čelebije 16"
+  }
+
+}
