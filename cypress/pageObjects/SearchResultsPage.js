@@ -13,7 +13,10 @@ let
     termsAndConditionsInfo = () => cy.get(".MuiTypography-root.MuiTypography-body1.mui-102vzuz"),
     payInCashRadioButton = () => cy.get("input[type='radio']"),
     bookingConfirmation = () => cy.get('.MuiTypography-bodyMedium'),
-    myTransfersButton = () => cy.get("cy.get('.MuiBottomNavigation-root > .mui-lez1ce > .MuiBox-root > .MuiButton-outlined')");
+    myTransfersButton = () => cy.get("cy.get('.MuiBottomNavigation-root > .mui-lez1ce > .MuiBox-root > .MuiButton-outlined')"),
+    pickupAddress = () => cy.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"),
+    pickupDropdown = () => cy.xpath('/html[1]/body[1]/div[2]/div[1]/ul[1]'),
+    confirmButton = () => cy.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[2]/span[1]");
 
 class SearchResultsPage extends BasePage {
     constructor() {
@@ -60,6 +63,18 @@ class SearchResultsPage extends BasePage {
     getBookingConfirmation() {
         cy.wait(7000);
         return bookingConfirmation();
+    }
+    getPickupAddress() {
+        return pickupAddress();
+    }
+    insertPickupAddress(address) {
+        pickupAddress().type(address);
+    }
+    getPickupDropdown() {
+        return pickupDropdown().click();
+    }
+    clickOnConfirmButton() {
+        return confirmButton().click();
     }
 
 }

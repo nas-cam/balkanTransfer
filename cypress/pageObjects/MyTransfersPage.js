@@ -26,6 +26,7 @@ class MyTransfersPage extends BasePage {
       return cancelReservationButton().click();
    }
    clickOnConfirmButtonCancelReservation() {
+      cy.wait(2000);
       return confirmButtonCancelReservation().click();
    }
 

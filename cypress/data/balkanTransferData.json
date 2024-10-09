@@ -7,8 +7,13 @@
   },
 
   "searchFormData":{
-    "from": "Tuzla",
-    "to": "Sarajevo"
+    "from": "Brčko",
+    "to": "Sarajevo Airport",
+    "pickupAddress": "Evlije Čelebije 16"
+  },
+
+  "pickupAddress":{
+    "pickupAddress": "Evlije Čelebije 16"
   }
 
 }

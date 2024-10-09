@@ -35,7 +35,12 @@ describe('Smoke Test Suite', () => {
 
     it('should verify search results are displayed', () => {
         searchResultsPage.visitSearchResultPage();
-        searchResultsPage.getSearchResultsHeader().should('be.visible').should('contain', 'Search results');
+        searchResultsPage.getSearchResultsHeader().should('be.visible').should('contain', 'Select your pick-up address');
+        searchResultsPage.insertPickupAddress(data.pickupAddress.pickupAddress);
+        searchResultsPage.getPickupDropdown();
+        searchResultsPage.clickOnConfirmButton();
+
+
         searchResultsPage.clickOnRouteList();
         searchResultsPage.clickOnBookTripOnSearchResultButton();
         searchResultsPage.getHeader().should('contain.text', 'Flight number');
@@ -59,5 +64,11 @@ describe('Smoke Test Suite', () => {
         myTransfersPage.clickOnTransferDialog();
         myTransfersPage.clickOnCancelReservationButton();
         myTransfersPage.clickOnConfirmButtonCancelReservation();
-    })
+    });
+    it('should logout from the user account', () => {
+        cy.wait(5000);
+        homePage.clickUserButton();
+        homePage.clickOnLogoutButton();
+    });
+
 });

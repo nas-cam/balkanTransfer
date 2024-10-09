@@ -30,9 +30,12 @@ class LoginPage extends BasePage {
 
     loginToPage(username, password) {
         this.getEmailInputField().type(username);
+        cy.wait(2000);
         this.getNextButton().click();
         this.getPasswordInputField().type(password);
+        cy.wait(2000);
         this.getSubmitButton().click();
+        cy.wait(2000);
     }
 
 }

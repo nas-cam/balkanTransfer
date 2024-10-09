@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.25.7",
+    "@babel/preset-env": "^7.25.7",
     "@testing-library/cypress": "^10.0.2",
+    "babel-loader": "^9.2.1",
     "cypress": "^13.14.2",
     "cypress-xpath": "^2.0.1"
   },
