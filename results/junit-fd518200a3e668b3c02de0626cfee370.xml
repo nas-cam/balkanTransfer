@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="45.992000000000004" tests="7" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-10-10T17:25:16" tests="0" file="cypress/e2e/smokeTest/smokeTest.cy.js" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Smoke Test Suite" timestamp="2024-10-10T17:25:16" tests="7" failures="0" time="45.992000000000004">
+    <testcase name="Smoke Test Suite should check for Welcome header on homepage" time="1.596" classname="should check for Welcome header on homepage" failure="false" error="false" success="true">
+    </testcase>
+    <testcase name="Smoke Test Suite should login" time="7.47" classname="should login" failure="false" error="false" success="true">
+    </testcase>
+    <testcase name="Smoke Test Suite should populate from and to fields" time="2.358" classname="should populate from and to fields" failure="false" error="false" success="true">
+    </testcase>
+    <testcase name="Smoke Test Suite should verify search results are displayed" time="7.092" classname="should verify search results are displayed" failure="false" error="false" success="true">
+    </testcase>
+    <testcase name="Smoke Test Suite should verify checkout process go without problem" time="18.481" classname="should verify checkout process go without problem" failure="false" error="false" success="true">
+    </testcase>
+    <testcase name="Smoke Test Suite should see the trasnfer and cancel it" time="3.71" classname="should see the trasnfer and cancel it" failure="false" error="false" success="true">
+    </testcase>
+    <testcase name="Smoke Test Suite should logout from the user account" time="5.285" classname="should logout from the user account" failure="false" error="false" success="true">
+    </testcase>
+  </testsuite>
+</testsuites>
