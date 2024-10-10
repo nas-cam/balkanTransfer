@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-10T20:21:01.652Z",
+    "end": "2024-10-10T20:21:45.487Z",
+    "duration": 43835,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b15f1613-daf1-45db-b896-0978e894a2f2",
+      "title": "",
+      "fullFile": "cypress/e2e/smokeTest/smokeTest.cy.js",
+      "file": "cypress/e2e/smokeTest/smokeTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a8ff2d8e-5773-4f70-a129-2f6e44c75107",
+          "title": "Smoke Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should check for Welcome header on homepage",
+              "fullTitle": "Smoke Test Suite should check for Welcome header on homepage",
+              "timedOut": null,
+              "duration": 1728,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.visitHomePage();\nhomePage.getWelcomeHeader().should('contain.text', 'Welcome');\nhomePage.clickOnUserProfile();",
+              "err": {},
+              "uuid": "7bf8dbf0-231d-4db4-9b06-72e0caaaab56",
+              "parentUUID": "a8ff2d8e-5773-4f70-a129-2f6e44c75107",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should login",
+              "fullTitle": "Smoke Test Suite should login",
+              "timedOut": null,
+              "duration": 7409,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.visitLoginPage();\nloginPage.loginToPage(data.loginCredentials.email, data.loginCredentials.password);",
+              "err": {},
+              "uuid": "d5c0dc25-c1a7-4c3c-89b6-ec21be55c25d",
+              "parentUUID": "a8ff2d8e-5773-4f70-a129-2f6e44c75107",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should populate from and to fields",
+              "fullTitle": "Smoke Test Suite should populate from and to fields",
+              "timedOut": null,
+              "duration": 2833,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.visitHomePage();\nhomePage.getWelcomeHeader().should('contain.text', 'Welcome');\nhomePage.enterFromLocationIntoSearchForm(data.searchFormData.from);\nhomePage.selectDropDownFrom();\nhomePage.enterToLocationIntoSearchForm(data.searchFormData.to);\nhomePage.selectDropdownTo();\nhomePage.clickOnDate();\nhomePage.selectDay();\nhomePage.clickOnSearchButton();",
+              "err": {},
+              "uuid": "859ebf87-203a-4e33-81e5-761e43319ad3",
+              "parentUUID": "a8ff2d8e-5773-4f70-a129-2f6e44c75107",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should verify search results are displayed",
+              "fullTitle": "Smoke Test Suite should verify search results are displayed",
+              "timedOut": null,
+              "duration": 4361,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "searchResultsPage.visitSearchResultPage();\nsearchResultsPage.getSearchResultsHeader().should('be.visible').should('contain', 'Select your pick-up address');\nsearchResultsPage.insertPickupAddress(data.pickupAddress.pickupAddress);\nsearchResultsPage.getPickupDropdown();\nsearchResultsPage.clickOnConfirmButton();\nsearchResultsPage.clickOnRouteList();\nsearchResultsPage.clickOnBookTripOnSearchResultButton();\nsearchResultsPage.getHeader().should('contain.text', 'Flight number');\nsearchResultsPage.clickOnSelectFlightButton();\nsearchResultsPage.clickOnBookTripButton();",
+              "err": {},
+              "uuid": "e80e6cb5-c0d0-4677-ae8c-d283e2d527e8",
+              "parentUUID": "a8ff2d8e-5773-4f70-a129-2f6e44c75107",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should verify checkout process go without problem",
+              "fullTitle": "Smoke Test Suite should verify checkout process go without problem",
+              "timedOut": null,
+              "duration": 18479,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "searchResultsPage.getHeader().should('contain.text', 'Checkout');\nsearchResultsPage.clickOnNextStepCheckout();\nsearchResultsPage.getNoExtrasInfo().should('contain.text', 'No extras available for selected trip.');\nsearchResultsPage.clickOnNextStepCheckout();\nsearchResultsPage.getTermsAndConditions().should('contain.text', 'By proceeding with the payment you agree to the Terms and Conditions');\nsearchResultsPage.checkPayInCashRadioButton();\nsearchResultsPage.clickOnNextStepCheckout();\nsearchResultsPage.getBookingConfirmation().should('contain.text', 'is confirmed');",
+              "err": {},
+              "uuid": "64552ece-4a6c-4c3a-8d22-e0684de96b0b",
+              "parentUUID": "a8ff2d8e-5773-4f70-a129-2f6e44c75107",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should see the trasnfer and cancel it",
+              "fullTitle": "Smoke Test Suite should see the trasnfer and cancel it",
+              "timedOut": null,
+              "duration": 3568,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "myTransfersPage.clickOnMyTransfersButton();\nmyTransfersPage.getMyTransfersBody().should('contain.text', 'My transfers');\nmyTransfersPage.clickOnTransferDialog();\nmyTransfersPage.clickOnCancelReservationButton();\nmyTransfersPage.clickOnConfirmButtonCancelReservation();",
+              "err": {},
+              "uuid": "c541f129-8f7e-41d4-8086-e929e0fcf8e2",
+              "parentUUID": "a8ff2d8e-5773-4f70-a129-2f6e44c75107",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should logout from the user account",
+              "fullTitle": "Smoke Test Suite should logout from the user account",
+              "timedOut": null,
+              "duration": 5283,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(5000);\nhomePage.clickUserButton();\nhomePage.clickOnLogoutButton();",
+              "err": {},
+              "uuid": "17f7677d-280d-4141-b27a-04fa2b6e62a5",
+              "parentUUID": "a8ff2d8e-5773-4f70-a129-2f6e44c75107",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7bf8dbf0-231d-4db4-9b06-72e0caaaab56",
+            "d5c0dc25-c1a7-4c3c-89b6-ec21be55c25d",
+            "859ebf87-203a-4e33-81e5-761e43319ad3",
+            "e80e6cb5-c0d0-4677-ae8c-d283e2d527e8",
+            "64552ece-4a6c-4c3a-8d22-e0684de96b0b",
+            "c541f129-8f7e-41d4-8086-e929e0fcf8e2",
+            "17f7677d-280d-4141-b27a-04fa2b6e62a5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 43661,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
