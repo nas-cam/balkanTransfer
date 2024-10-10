@@ -1,4 +1,5 @@
 const { defineConfig } = require('cypress');
+const cypressJunit = require('cypress-junit-reporter');
 
 module.exports = defineConfig({
   e2e: {
