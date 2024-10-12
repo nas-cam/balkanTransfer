@@ -1,4 +1,4 @@
-// selectors.js
+// searchResultsPageSelectors.js
 
 export const SEARCH_RESULTS_HEADER = "/html/body/div/main/div/header/div/div/div/div[1]/span";
 export const ROUTE_LIST = ".MuiBox-root.mui-eyr0e";
@@ -11,7 +11,8 @@ export const NO_EXTRAS_INFO = "div[class='MuiBox-root mui-1h6vrpb'] p[class='Mui
 export const TERMS_AND_CONDITIONS_INFO = ".MuiTypography-root.MuiTypography-body1.mui-102vzuz";
 export const PAY_IN_CASH_RADIO_BUTTON = "input[type='radio']";
 export const BOOKING_CONFIRMATION = '.MuiTypography-bodyMedium';
-export const MY_TRANSFERS_BUTTON = ".MuiBottomNavigation-root > .mui-lez1ce > .MuiBox-root > .MuiButton-outlined";
+export const MY_TRANSFERS_BUTTON = '.MuiBottomNavigation-root > .mui-lez1ce > .MuiBox-root > .MuiButton-outlined';
 export const PICKUP_ADDRESS = "/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]";
 export const PICKUP_DROPDOWN = '/html[1]/body[1]/div[2]/div[1]/ul[1]';
 export const CONFIRM_BUTTON = "/html[1]/body[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[2]/span[1]";
+export const SEARCH_QUERY_HEADER = "/html/body/div[1]/main/div/div[1]/div/div/div[2]/div[1]/div[1]/div";

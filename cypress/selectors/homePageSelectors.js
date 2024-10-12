@@ -1,4 +1,4 @@
-// selectors.js
+// homePageSelectors.js
 
 export const WELCOME_HEADER = 'body > div.MuiBox-root.mui-19x385r > main > div.MuiBox-root.mui-dfax11 > div > div > h1';
 export const USER_PROFILE_BUTTON = "a[href='/login']";
@@ -18,3 +18,14 @@ export const ABOUT_US_LINK = "body > div.MuiPopover-root.MuiMenu-root.MuiModal-r
 export const SAFETY_AND_QUALITY_LINK = "body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(2) > li";
 export const FAQ_LINK = "body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(3) > li";
 export const HEADER = "body > div.MuiBox-root.mui-19x385r > main > div.MuiBox-root.mui-a1o77m > div > div > span.MuiTypography-root.MuiTypography-h4Medium.mui-1lvltin";
+export const DISCOVER_LINK = "/html/body/div[1]/main/header/div/div/div/div[2]/div[2]/button[2]";
+export const BLOG_LINK = "body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(1) > li";
+export const TRANSFERS_LINK = "body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(2) > li";
+export const DESTINATIONS_LINK = "body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(3) > li";
+export const BLOG_HEADER = "body > div.MuiBox-root.mui-19x385r > main > div.MuiBox-root.mui-8tb0gr > main > div > div.MuiBox-root.mui-a1o77m > div > div > span.MuiTypography-root.MuiTypography-h4Medium.mui-1lvltin";
+export const OFFERS_AND_NEWS_LINK = "body > div.MuiBox-root.mui-19x385r > main > header > div > div > div > div.MuiBox-root.mui-0 > div.MuiBox-root.mui-rstqio > a:nth-child(4) > button";
+export const OFFERS_NEWS_HEADER = "/html/body/div[1]/main/div[1]/main/div/div[1]/div/div/span[1]";
+export const CURRENCY_DROPDOWN = "#locale-select";
+export const EUR_CURRENCY = "//li[normalize-space()='Euro']";
+export const LANGUAGE_DROPDOWN = "/html[1]/body[1]/div[1]/main[1]/header[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]";
+export const ENGLISH_LANGUAGE = "//li[normalize-space()='English']";
