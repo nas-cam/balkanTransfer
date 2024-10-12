@@ -15,7 +15,9 @@ import {
     MY_TRANSFERS_BUTTON,
     PICKUP_ADDRESS,
     PICKUP_DROPDOWN,
-    CONFIRM_BUTTON
+    CONFIRM_BUTTON,
+    SEARCH_QUERY_HEADER,
+
 } from '../selectors/searchResultsPageSelectors';
 
 class SearchResultsPage extends BasePage {
@@ -85,6 +87,9 @@ class SearchResultsPage extends BasePage {
 
     clickOnConfirmButton() {
         return getElementByXPath(CONFIRM_BUTTON).click();
+    }
+    getSearchQueryHeader() {
+        return getElementByXPath(SEARCH_QUERY_HEADER);
     }
 }
 

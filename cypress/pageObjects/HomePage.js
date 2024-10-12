@@ -18,7 +18,19 @@ import {
    ABOUT_US_LINK,
    SAFETY_AND_QUALITY_LINK,
    FAQ_LINK,
-   HEADER
+   HEADER,
+   DISCOVER_LINK,
+   DESTINATIONS_LINK,
+   BLOG_LINK,
+   BLOG_HEADER,
+   TRANSFERS_LINK,
+   OFFERS_AND_NEWS_LINK,
+   OFFERS_NEWS_HEADER,
+   CURRENCY_DROPDOWN,
+   EUR_CURRENCY,
+   LANGUAGE_DROPDOWN,
+   ENGLISH_LANGUAGE
+
 } from '../selectors/homePageSelectors';
 
 class HomePage extends BasePage {
@@ -101,6 +113,47 @@ class HomePage extends BasePage {
    getHeader() {
       return getElement(HEADER);
    }
+   clickOnDiscoverLink() {
+      return getElementByXPath(DISCOVER_LINK).click();
+   }
+   clickOnBlogLink() {
+      return getElement(BLOG_LINK).click();
+   }
+   getBlogHeader() {
+      return getElement(BLOG_HEADER);
+   }
+   clickOnTransfersLink() {
+      return getElement(TRANSFERS_LINK).click();
+   }
+   clickOnDestinationsLink() {
+      return getElement(DESTINATIONS_LINK).click();
+   }
+   clickOnOffersAndNewsLink() {
+      return getElement(OFFERS_AND_NEWS_LINK).click();
+   }
+   getOffersNewsHeader() {
+      return getElementByXPath(OFFERS_NEWS_HEADER);
+   }
+   clickOnCurrencyDropdown() {
+      return getElement(CURRENCY_DROPDOWN).click();
+   }
+   clickOnEurCurrency() {
+      return getElementByXPath(EUR_CURRENCY).click();
+   }
+   clickOnLanguageDropdown() {
+      return getElementByXPath(LANGUAGE_DROPDOWN).click();
+   }
+   clickOnEnglishLanguage() {
+      return getElementByXPath(ENGLISH_LANGUAGE).click();
+   }
+   getcurrencyDropdown() {
+      return getElement(CURRENCY_DROPDOWN);
+   }
+   getLanguageDropdown() {
+      return getElementByXPath(LANGUAGE_DROPDOWN);
+   }
+
+
 }
 
 export default HomePage;
