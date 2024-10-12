@@ -7,7 +7,7 @@ const data = require('../../data/balkanTransferData.json');
 describe('Regression User Side Test Suite', () => {
     const homePage = new HomePage();
 
-    it('should check links on the homepage', () => {
+    it('should check links under Company dropdown on the homepage', () => {
         homePage.visitHomePage();
         homePage.getWelcomeHeader().should('contain.text', 'Welcome');
         homePage.clickOnCompanyLink();
@@ -21,6 +21,28 @@ describe('Regression User Side Test Suite', () => {
         homePage.getHeader().should('contain.text', 'Frequently asked questions');
         homePage.clickOnHomeLink();
     });
+    it('should check links under Discover dropdown on the homepage', () => {
+        homePage.clickOnDiscoverLink();
+        homePage.clickOnBlogLink();
+        homePage.getBlogHeader().should('contain.text', 'Blog');
+        homePage.clickOnDiscoverLink();
+        homePage.clickOnTransfersLink();
+        homePage.getBlogHeader().should('contain.text', 'Transfers');
+        homePage.clickOnDiscoverLink();
+        homePage.clickOnDestinationsLink();
+        homePage.getBlogHeader().should('contain.text', 'Destinations');
+    });
+    it('should check Offers and news link on the homepage', () => {
+        homePage.clickOnOffersAndNewsLink();
+        homePage.getOffersNewsHeader().should('contain.text', 'Offers & News');
+    });
+
+    it('should check currency dropdown on the homepage', () => {
+        homePage.clickOnCurrencyDropdown();
+        homePage.clickOnEurCurrency();
+        homePage.getcurrencyDropdown().should('contain.text', 'Euro');
+    }
+    );
 
     /*  it('should populate from and to fields', () => {
          homePage.visitHomePage();

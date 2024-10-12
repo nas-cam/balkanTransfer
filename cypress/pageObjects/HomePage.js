@@ -1,7 +1,6 @@
 import BasePage from './BasePage';
 require('cypress-xpath');
 
-// Element selectors using arrow functions
 let
    welcomeHeader = () => cy.get('body > div.MuiBox-root.mui-19x385r > main > div.MuiBox-root.mui-dfax11 > div > div > h1'),
    userProfileButton = () => cy.get("a[href='/login']"),
@@ -20,7 +19,16 @@ let
    aboutUsLink = () => cy.get("body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(1) > li"),
    safetyAndQualityLink = () => cy.get("body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(2) > li"),
    faqLink = () => cy.get("body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(3) > li"),
-   header = () => cy.get("body > div.MuiBox-root.mui-19x385r > main > div.MuiBox-root.mui-a1o77m > div > div > span.MuiTypography-root.MuiTypography-h4Medium.mui-1lvltin");
+   header = () => cy.get("body > div.MuiBox-root.mui-19x385r > main > div.MuiBox-root.mui-a1o77m > div > div > span.MuiTypography-root.MuiTypography-h4Medium.mui-1lvltin"),
+   discoverLink = () => cy.xpath("/html/body/div[1]/main/header/div/div/div/div[2]/div[2]/button[2]"),
+   blogLink = () => cy.get("body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(1) > li"),
+   transfersLink = () => cy.get("body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(2) > li"),
+   destinationsLink = () => cy.get("body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(3) > li"),
+   blogHeader = () => cy.get("body > div.MuiBox-root.mui-19x385r > main > div.MuiBox-root.mui-8tb0gr > main > div > div.MuiBox-root.mui-a1o77m > div > div > span.MuiTypography-root.MuiTypography-h4Medium.mui-1lvltin"),
+   offersAndNewsLink = () => cy.get("body > div.MuiBox-root.mui-19x385r > main > header > div > div > div > div.MuiBox-root.mui-0 > div.MuiBox-root.mui-rstqio > a:nth-child(4) > button"),
+   offersNewsHeader = () => cy.xpath("/html/body/div[1]/main/div[1]/main/div/div[1]/div/div/span[1]"),
+   currencyDropdown = () => cy.get("#locale-select"),
+   eurCurrency = () => cy.xpath("//li[normalize-space()='Euro']");
 
 class HomePage extends BasePage {
    constructor() {
@@ -86,16 +94,46 @@ class HomePage extends BasePage {
       companyLink().click();
    }
    clickOnAboutUsLink() {
-      aboutUsLink().click({ force: true });
+      aboutUsLink().click();
    }
    clickOnSafetyAndQualityLink() {
-      safetyAndQualityLink().click({ force: true });
+      safetyAndQualityLink().click();
    }
    clickOnFaqLink() {
       faqLink().click();
    }
    getHeader() {
       return header();
+   }
+   clickOnDiscoverLink() {
+      discoverLink().click();
+   }
+   clickOnBlogLink() {
+      blogLink().click();
+   }
+   clickOnTransfersLink() {
+      transfersLink().click();
+   }
+   clickOnDestinationsLink() {
+      destinationsLink().click();
+   }
+   getBlogHeader() {
+      return blogHeader();
+   }
+   clickOnOffersAndNewsLink() {
+      offersAndNewsLink().click();
+   }
+   getOffersNewsHeader() {
+      return offersNewsHeader();
+   }
+   clickOnCurrencyDropdown() {
+      currencyDropdown().click();
+   }
+   getcurrencyDropdown() {
+      return currencyDropdown();
+   }
+   clickOnEurCurrency() {
+      eurCurrency().click();
    }
 
 
