@@ -34,9 +34,4 @@ describe('Regression User Side Test Suite', () => {
          homePage.clickOnSearchButton();
      });
   */
-
-
-
-
-
 });

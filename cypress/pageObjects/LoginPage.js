@@ -1,4 +1,13 @@
 import BasePage from './BasePage';
+import {getElement, getElementByMessage, getElementByXPath, getEnabledButton} from '../utils/cyUtils';
+import {
+    EMAIL_INPUT,
+    EMAIL_ERROR_MESSAGE,
+    PASSWORD_INPUT,
+    PASSWORD_ERROR_MESSAGE,
+    NEXT_BUTTON,
+    SUBMIT_BUTTON
+} from '../selectors/loginPageSelectors';
 
 class LoginPage extends BasePage {
     constructor() {
@@ -10,34 +19,45 @@ class LoginPage extends BasePage {
     }
 
     getEmailInputField() {
-        return cy.get("input");
+        return getElement(EMAIL_INPUT);
     }
+
     getEmailErrorMessage() {
-        cy.get('//p[@id=":r1a:-helper-text"]');
+        return getElementByMessage('p', EMAIL_ERROR_MESSAGE);
     }
+
     getPasswordInputField() {
-        return cy.get('input[name="password"]');
+        return getElement(PASSWORD_INPUT);
     }
+
     getPasswordErrorMessage() {
-        return cy.get("//p[@class='MuiTypography-root MuiTypography-body2 mui-nsphzz']");
+        return getElementByMessage('p', PASSWORD_ERROR_MESSAGE);
     }
+
     getNextButton() {
-        return cy.get('button');
+        return getElementByMessage('button', NEXT_BUTTON);
     }
+
     getSubmitButton() {
-        return cy.get('button[type="submit"]');
+        return getElementByMessage('button', SUBMIT_BUTTON);
     }
 
     loginToPage(username, password) {
         this.getEmailInputField().type(username);
-        cy.wait(2000);
         this.getNextButton().click();
         this.getPasswordInputField().type(password);
-        cy.wait(2000);
         this.getSubmitButton().click();
-        cy.wait(2000);
     }
 
+    loginStep1(username) {
+        this.getEmailInputField().clear().type(username);
+        this.getNextButton().click();
+    }
+
+    loginStep2(password) {
+        this.getPasswordInputField().type(password);
+        this.getSubmitButton().click();
+    }
 }
 
 export default LoginPage;

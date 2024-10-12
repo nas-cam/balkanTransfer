@@ -1,12 +1,12 @@
 import BasePage from './BasePage';
-
-let
-   myTransfersButton = () => cy.get(".MuiBottomNavigation-root > .mui-lez1ce > .MuiBox-root > .MuiButton-outlined"),
-   transferDialog = () => cy.get("#app-tabpanel-0 > div > div > div > div > div > div"),
-   myTransfersBody = () => cy.get('.MuiTypography-titleSemibold'),
-   cancelReservationButton = () => cy.get('body > div.MuiBox-root.mui-19x385r > main > div > div > div > section > main > div > div.MuiBox-root.mui-7oyeuh > button'),
-   confirmButtonCancelReservation = () => cy.get("body > div.MuiDialog-root.MuiModal-root.mui-126xj0f > div.MuiDialog-container.MuiDialog-scrollPaper.mui-ekeie0 > div > div.MuiDialogActions-root.MuiDialogActions-spacing.mui-dzk89o > button");
-
+import { getElement, getEnabledButton } from '../utils/cyUtils';
+import {
+   MY_TRANSFERS_BUTTON,
+   TRANSFER_DIALOG,
+   MY_TRANSFERS_BODY,
+   CANCEL_RESERVATION_BUTTON,
+   CONFIRM_BUTTON_CANCEL_RESERVATION
+} from '../selectors/myTransferPageSelectors';
 
 class MyTransfersPage extends BasePage {
    constructor() {
@@ -14,23 +14,24 @@ class MyTransfersPage extends BasePage {
    }
 
    clickOnMyTransfersButton() {
-      return myTransfersButton().click();
+      return getElement(MY_TRANSFERS_BUTTON).click();
    }
+
    clickOnTransferDialog() {
-      return transferDialog().click();
+      return getElement(TRANSFER_DIALOG).click();
    }
+
    getMyTransfersBody() {
-      return myTransfersBody();
+      return getElement(MY_TRANSFERS_BODY);
    }
+
    clickOnCancelReservationButton() {
-      return cancelReservationButton().click();
+      return getElement(CANCEL_RESERVATION_BUTTON).click();
    }
+
    clickOnConfirmButtonCancelReservation() {
-      cy.wait(2000);
-      return confirmButtonCancelReservation().click();
+      return getEnabledButton(CONFIRM_BUTTON_CANCEL_RESERVATION).click();
    }
-
-
 }
 
 export default MyTransfersPage;

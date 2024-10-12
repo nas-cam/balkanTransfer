@@ -2,7 +2,7 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
+      setupNodeEvents(on, config) {
     },
     chromeWebSecurity: false,
     testIsolation: false,
@@ -16,5 +16,4 @@ module.exports = defineConfig({
     html: true,
     json: false
   },
-
 });

@@ -1,22 +1,22 @@
 import BasePage from './BasePage';
-
-
-let
-    searchResultsHeader = () => cy.xpath("/html/body/div/main/div/header/div/div/div/div[1]/span"),
-    routeList = () => cy.get(".MuiBox-root.mui-eyr0e"),
-    bookTripButtonOnSearchResult = () => cy.get(".MuiTypography-root.MuiTypography-bodySmallRegular.mui-x6054o"),
-    header = () => cy.get(".MuiTypography-root.MuiTypography-bodyLargeRegular.mui-rddso"),
-    selectFlightButton = () => cy.get("tbody tr:nth-child(1) td:nth-child(5) button:nth-child(1)"),
-    bookTripButton = () => cy.get("div[class='MuiBox-root mui-g5zuwl'] button[type='button']"),
-    nextStepCheckout = () => cy.get(".MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-disableElevation.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-disableElevation.mui-6hy69y"),
-    noExtrasInfo = () => cy.get("div[class='MuiBox-root mui-1h6vrpb'] p[class='MuiTypography-root MuiTypography-body1 mui-w4lzw']"),
-    termsAndConditionsInfo = () => cy.get(".MuiTypography-root.MuiTypography-body1.mui-102vzuz"),
-    payInCashRadioButton = () => cy.get("input[type='radio']"),
-    bookingConfirmation = () => cy.get('.MuiTypography-bodyMedium'),
-    myTransfersButton = () => cy.get("cy.get('.MuiBottomNavigation-root > .mui-lez1ce > .MuiBox-root > .MuiButton-outlined')"),
-    pickupAddress = () => cy.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"),
-    pickupDropdown = () => cy.xpath('/html[1]/body[1]/div[2]/div[1]/ul[1]'),
-    confirmButton = () => cy.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[2]/span[1]");
+import { getElement, getElementByXPath, getEnabledButton } from '../utils/cyUtils';
+import {
+    SEARCH_RESULTS_HEADER,
+    ROUTE_LIST,
+    BOOK_TRIP_BUTTON_ON_SEARCH_RESULT,
+    HEADER,
+    SELECT_FLIGHT_BUTTON,
+    BOOK_TRIP_BUTTON,
+    NEXT_STEP_CHECKOUT,
+    NO_EXTRAS_INFO,
+    TERMS_AND_CONDITIONS_INFO,
+    PAY_IN_CASH_RADIO_BUTTON,
+    BOOKING_CONFIRMATION,
+    MY_TRANSFERS_BUTTON,
+    PICKUP_ADDRESS,
+    PICKUP_DROPDOWN,
+    CONFIRM_BUTTON
+} from '../selectors/searchResultsPageSelectors';
 
 class SearchResultsPage extends BasePage {
     constructor() {
@@ -28,55 +28,64 @@ class SearchResultsPage extends BasePage {
     }
 
     getSearchResultsHeader() {
-        return searchResultsHeader();
+        return getElementByXPath(SEARCH_RESULTS_HEADER);
     }
+
     clickOnRouteList() {
-        return routeList().click();
+        return getElement(ROUTE_LIST).click();
     }
+
     clickOnBookTripOnSearchResultButton() {
-        return bookTripButtonOnSearchResult().click();
+        return getElement(BOOK_TRIP_BUTTON_ON_SEARCH_RESULT).click();
     }
 
     clickOnSelectFlightButton() {
-        return selectFlightButton().click();
-    }
-    clickOnBookTripButton() {
-        return bookTripButton().click();
-    }
-    getHeader() {
-        return header();
-    }
-    clickOnNextStepCheckout() {
-        cy.wait(3000);
-        return nextStepCheckout().click();
-    }
-    getNoExtrasInfo() {
-        return noExtrasInfo();
-    }
-    getTermsAndConditions() {
-        cy.wait(2000);
-        return termsAndConditionsInfo();
-    }
-    checkPayInCashRadioButton() {
-        return payInCashRadioButton().check();
-    }
-    getBookingConfirmation() {
-        cy.wait(7000);
-        return bookingConfirmation();
-    }
-    getPickupAddress() {
-        return pickupAddress();
-    }
-    insertPickupAddress(address) {
-        pickupAddress().type(address);
-    }
-    getPickupDropdown() {
-        return pickupDropdown().click();
-    }
-    clickOnConfirmButton() {
-        return confirmButton().click();
+        return getElement(SELECT_FLIGHT_BUTTON).click();
     }
 
+    clickOnBookTripButton() {
+        return getElement(BOOK_TRIP_BUTTON).click();
+    }
+
+    getHeader() {
+        return getElement(HEADER);
+    }
+
+    clickOnNextStepCheckout() {
+        return getEnabledButton(NEXT_STEP_CHECKOUT).click();
+    }
+
+    getNoExtrasInfo() {
+        return getElement(NO_EXTRAS_INFO);
+    }
+
+    getTermsAndConditions() {
+        return getElement(TERMS_AND_CONDITIONS_INFO);
+    }
+
+    checkPayInCashRadioButton() {
+        return getElement(PAY_IN_CASH_RADIO_BUTTON).check();
+    }
+
+    getBookingConfirmation() {
+        return getElement(BOOKING_CONFIRMATION);
+    }
+
+    getPickupAddress() {
+        return getElementByXPath(PICKUP_ADDRESS);
+    }
+
+    insertPickupAddress(address) {
+        this.getPickupAddress().type(address);
+    }
+
+    getPickupDropdown() {
+        return getElementByXPath(PICKUP_DROPDOWN).click();
+    }
+
+    clickOnConfirmButton() {
+        return getElementByXPath(CONFIRM_BUTTON).click();
+    }
 }
 
 export default SearchResultsPage;

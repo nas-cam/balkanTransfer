@@ -1,26 +1,25 @@
 import BasePage from './BasePage';
-require('cypress-xpath');
-
-// Element selectors using arrow functions
-let
-   welcomeHeader = () => cy.get('body > div.MuiBox-root.mui-19x385r > main > div.MuiBox-root.mui-dfax11 > div > div > h1'),
-   userProfileButton = () => cy.get("a[href='/login']"),
-   fromInputField = () => cy.xpath('//*[@id=":r2:"]'),
-   dropdownFrom = () => cy.xpath("//p[normalize-space()='Brčko NC']"),
-   toInputField = () => cy.get("input[id=':r4:']"),
-   dropdownTo = () => cy.xpath("//div[@class='MuiBox-root mui-3hg8yt']"),
-   dateField = () => cy.xpath("//input[@id=':r19:']"),
-   day = () => cy.xpath("//button[normalize-space()='30']"),
-   searchButton = () => cy.xpath("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-fullWidth mui-23ybp9']"),
-   profileButton = () => cy.xpath('//div[@class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault mui-14rrwnw"]'),
-   logoutButton = () => cy.get("body > div.MuiPopover-root.MuiModal-root.mui-jp7szo > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.mui-b0iwh3 > div > nav > div"),
-   logo = () => cy.get("body > div.MuiBox-root.mui-19x385r > main > header > div > div > div > div.MuiBox-root.mui-xd1q75 > a > img"),
-   homeLink = () => cy.xpath("//button[normalize-space()='Home']"),
-   companyLink = () => cy.xpath("//button[normalize-space()='Company']"),
-   aboutUsLink = () => cy.get("body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(1) > li"),
-   safetyAndQualityLink = () => cy.get("body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(2) > li"),
-   faqLink = () => cy.get("body > div.MuiPopover-root.MuiMenu-root.MuiModal-root.mui-1sucic7 > div.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.mui-q1c362 > ul > a:nth-child(3) > li"),
-   header = () => cy.get("body > div.MuiBox-root.mui-19x385r > main > div.MuiBox-root.mui-a1o77m > div > div > span.MuiTypography-root.MuiTypography-h4Medium.mui-1lvltin");
+import { getElement, getElementByXPath, getEnabledButton } from '../utils/cyUtils';
+import {
+   WELCOME_HEADER,
+   USER_PROFILE_BUTTON,
+   FROM_INPUT_FIELD,
+   DROPDOWN_FROM,
+   TO_INPUT_FIELD,
+   DROPDOWN_TO,
+   DATE_FIELD,
+   DAY,
+   SEARCH_BUTTON,
+   PROFILE_BUTTON,
+   LOGOUT_BUTTON,
+   LOGO,
+   HOME_LINK,
+   COMPANY_LINK,
+   ABOUT_US_LINK,
+   SAFETY_AND_QUALITY_LINK,
+   FAQ_LINK,
+   HEADER
+} from '../selectors/homePageSelectors';
 
 class HomePage extends BasePage {
    constructor() {
@@ -32,73 +31,76 @@ class HomePage extends BasePage {
    }
 
    clickOnUserProfile() {
-      return userProfileButton().click();
+      return getElement(USER_PROFILE_BUTTON).click();
    }
 
    enterFromLocationIntoSearchForm(from) {
-      return fromInputField().type(from);
+      return getElementByXPath(FROM_INPUT_FIELD).type(from);
    }
 
    selectDropDownFrom() {
-      return dropdownFrom().click();
+      return getElementByXPath(DROPDOWN_FROM).click();
    }
 
    enterToLocationIntoSearchForm(to) {
-      cy.wait(200);
-      toInputField().type(to);
+      return getElement(TO_INPUT_FIELD).type(to);
    }
 
    selectDropdownTo() {
-      cy.wait(200);
-      return dropdownTo().click();
+      return getElementByXPath(DROPDOWN_TO).click();
    }
 
    clickOnDate() {
-      cy.wait(200);
-      return dateField().click();
+      return getElementByXPath(DATE_FIELD).click();
    }
 
    selectDay() {
-      cy.wait(200);
-      return day().click();
+      return getElementByXPath(DAY).click();
    }
 
    clickOnSearchButton() {
-      return searchButton().click();
+      return getElementByXPath(SEARCH_BUTTON).click();
    }
 
    getWelcomeHeader() {
-      return welcomeHeader();
+      return getElement(WELCOME_HEADER);
    }
+
    clickUserButton() {
-      profileButton().click();
+      return getElementByXPath(PROFILE_BUTTON).click();
    }
+
    clickOnLogoutButton() {
-      logoutButton().click();
+      return getElement(LOGOUT_BUTTON).click();
    }
+
    clickOnLogo() {
-      logo().click();
+      return getElement(LOGO).click();
    }
+
    clickOnHomeLink() {
-      homeLink().click();
+      return getElementByXPath(HOME_LINK).click();
    }
+
    clickOnCompanyLink() {
-      companyLink().click();
+      return getElementByXPath(COMPANY_LINK).click();
    }
+
    clickOnAboutUsLink() {
-      aboutUsLink().click({ force: true });
+      return getElement(ABOUT_US_LINK).click({ force: true });
    }
+
    clickOnSafetyAndQualityLink() {
-      safetyAndQualityLink().click({ force: true });
+      return getElement(SAFETY_AND_QUALITY_LINK).click({ force: true });
    }
+
    clickOnFaqLink() {
-      faqLink().click();
+      return getElement(FAQ_LINK).click();
    }
+
    getHeader() {
-      return header();
+      return getElement(HEADER);
    }
-
-
 }
 
 export default HomePage;
