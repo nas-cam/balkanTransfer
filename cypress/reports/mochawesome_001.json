@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-10-12T00:34:39.826Z",
+    "end": "2024-10-12T00:34:46.792Z",
+    "duration": 6966,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cac9d8ae-ea0c-4c44-9be9-806d08efc033",
+      "title": "",
+      "fullFile": "cypress/e2e/regression/regressionUser.cy.js",
+      "file": "cypress/e2e/regression/regressionUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f9ca5652-06ec-4c03-a284-fc3dfbd6a8d8",
+          "title": "Regression User Side Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should check links under Company dropdown on the homepage",
+              "fullTitle": "Regression User Side Test Suite should check links under Company dropdown on the homepage",
+              "timedOut": null,
+              "duration": 4583,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.visitHomePage();\nhomePage.getWelcomeHeader().should('contain.text', 'Welcome');\nhomePage.clickOnCompanyLink();\nhomePage.clickOnAboutUsLink();\nhomePage.getHeader().should('contain.text', 'About us');\nhomePage.clickOnCompanyLink();\nhomePage.clickOnSafetyAndQualityLink();\nhomePage.getHeader().should('contain.text', 'Safety and quality');\nhomePage.clickOnCompanyLink();\nhomePage.clickOnFaqLink();\nhomePage.getHeader().should('contain.text', 'Frequently asked questions');\nhomePage.clickOnHomeLink();",
+              "err": {},
+              "uuid": "56aa208a-f8d4-47ff-8423-aeda55bdc891",
+              "parentUUID": "f9ca5652-06ec-4c03-a284-fc3dfbd6a8d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should check links under Discover dropdown on the homepage",
+              "fullTitle": "Regression User Side Test Suite should check links under Discover dropdown on the homepage",
+              "timedOut": null,
+              "duration": 1395,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.clickOnDiscoverLink();\nhomePage.clickOnBlogLink();\nhomePage.getBlogHeader().should('contain.text', 'Blog');\nhomePage.clickOnDiscoverLink();\nhomePage.clickOnTransfersLink();\nhomePage.getBlogHeader().should('contain.text', 'Transfers');\nhomePage.clickOnDiscoverLink();\nhomePage.clickOnDestinationsLink();\nhomePage.getBlogHeader().should('contain.text', 'Destinations');",
+              "err": {},
+              "uuid": "ac468a90-0b12-4b74-858a-9cf178a87507",
+              "parentUUID": "f9ca5652-06ec-4c03-a284-fc3dfbd6a8d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should check Offers and news link on the homepage",
+              "fullTitle": "Regression User Side Test Suite should check Offers and news link on the homepage",
+              "timedOut": null,
+              "duration": 684,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.clickOnOffersAndNewsLink();\nhomePage.getOffersNewsHeader().should('contain.text', 'Offers & News');",
+              "err": {},
+              "uuid": "78d2e880-c876-4753-b459-5ae3109d3385",
+              "parentUUID": "f9ca5652-06ec-4c03-a284-fc3dfbd6a8d8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should check currency dropdown on the homepage",
+              "fullTitle": "Regression User Side Test Suite should check currency dropdown on the homepage",
+              "timedOut": null,
+              "duration": 158,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.clickOnCurrencyDropdown();\nhomePage.clickOnEurCurrency();\nhomePage.getcurrencyDropdown().should('contain.text', 'Euro');",
+              "err": {},
+              "uuid": "04ee0347-7a6e-4122-8a0f-a05a4d929f57",
+              "parentUUID": "f9ca5652-06ec-4c03-a284-fc3dfbd6a8d8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "56aa208a-f8d4-47ff-8423-aeda55bdc891",
+            "ac468a90-0b12-4b74-858a-9cf178a87507",
+            "78d2e880-c876-4753-b459-5ae3109d3385",
+            "04ee0347-7a6e-4122-8a0f-a05a4d929f57"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6820,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "charts": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
