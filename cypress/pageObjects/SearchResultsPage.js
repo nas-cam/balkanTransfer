@@ -16,7 +16,8 @@ let
     myTransfersButton = () => cy.get("cy.get('.MuiBottomNavigation-root > .mui-lez1ce > .MuiBox-root > .MuiButton-outlined')"),
     pickupAddress = () => cy.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"),
     pickupDropdown = () => cy.xpath('/html[1]/body[1]/div[2]/div[1]/ul[1]'),
-    confirmButton = () => cy.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[2]/span[1]");
+    confirmButton = () => cy.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[2]/span[1]"),
+    searchQueryHeader = () => cy.xpath("/html/body/div[1]/main/div/div[1]/div/div/div[2]/div[1]/div[1]/div");
 
 class SearchResultsPage extends BasePage {
     constructor() {
@@ -75,6 +76,9 @@ class SearchResultsPage extends BasePage {
     }
     clickOnConfirmButton() {
         return confirmButton().click();
+    }
+    getSearchQueryHeader() {
+        return searchQueryHeader();
     }
 
 }

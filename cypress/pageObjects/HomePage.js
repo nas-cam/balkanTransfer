@@ -28,8 +28,9 @@ let
    offersAndNewsLink = () => cy.get("body > div.MuiBox-root.mui-19x385r > main > header > div > div > div > div.MuiBox-root.mui-0 > div.MuiBox-root.mui-rstqio > a:nth-child(4) > button"),
    offersNewsHeader = () => cy.xpath("/html/body/div[1]/main/div[1]/main/div/div[1]/div/div/span[1]"),
    currencyDropdown = () => cy.get("#locale-select"),
-   eurCurrency = () => cy.xpath("//li[normalize-space()='Euro']");
-
+   eurCurrency = () => cy.xpath("//li[normalize-space()='Euro']"),
+   languageDropdown = () => cy.xpath("/html[1]/body[1]/div[1]/main[1]/header[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]"),
+   englishLanguage = () => cy.xpath("//li[normalize-space()='English']");
 class HomePage extends BasePage {
    constructor() {
       super();
@@ -134,6 +135,15 @@ class HomePage extends BasePage {
    }
    clickOnEurCurrency() {
       eurCurrency().click();
+   }
+   clickOnLanguageDropdown() {
+      languageDropdown().click();
+   }
+   getLanguageDropdown() {
+      return languageDropdown();
+   }
+   clickOnEnglishLanguage() {
+      englishLanguage().click();
    }
 
 
