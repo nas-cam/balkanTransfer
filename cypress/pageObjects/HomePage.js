@@ -1,36 +1,37 @@
 import BasePage from './BasePage';
 import { getElement, getElementByXPath, getEnabledButton } from '../utils/cyUtils';
 import {
-   WELCOME_HEADER,
-   USER_PROFILE_BUTTON,
-   FROM_INPUT_FIELD,
-   DROPDOWN_FROM,
-   TO_INPUT_FIELD,
-   DROPDOWN_TO,
+   ABOUT_US_LINK,
+   BLOG_HEADER,
+   BLOG_LINK,
+   COMPANY_LINK,
+   CURRENCY_DROPDOWN,
    DATE_FIELD,
    DAY,
-   SEARCH_BUTTON,
-   PROFILE_BUTTON,
-   LOGOUT_BUTTON,
-   LOGO,
-   HOME_LINK,
-   COMPANY_LINK,
-   ABOUT_US_LINK,
-   SAFETY_AND_QUALITY_LINK,
-   FAQ_LINK,
-   HEADER,
-   DISCOVER_LINK,
    DESTINATIONS_LINK,
-   BLOG_LINK,
-   BLOG_HEADER,
-   TRANSFERS_LINK,
+   DISCOVER_LINK,
+   DROPDOWN_FROM,
+   DROPDOWN_TO,
+   ENGLISH_LANGUAGE,
+   BOSNIAN_LANGUAGE,
+   EUR_CURRENCY,
+   BAM_CURRENCY,
+   FAQ_LINK,
+   FROM_INPUT_FIELD,
+   PAGE_HEADER,
+   HOME_LINK,
+   LANGUAGE_DROPDOWN,
+   LOGO,
+   LOGOUT_BUTTON,
    OFFERS_AND_NEWS_LINK,
    OFFERS_NEWS_HEADER,
-   CURRENCY_DROPDOWN,
-   EUR_CURRENCY,
-   LANGUAGE_DROPDOWN,
-   ENGLISH_LANGUAGE
-
+   PROFILE_BUTTON,
+   SAFETY_AND_QUALITY_LINK,
+   SEARCH_BUTTON,
+   TO_INPUT_FIELD,
+   TRANSFERS_LINK,
+   USER_PROFILE_BUTTON,
+   WELCOME_HEADER
 } from '../selectors/homePageSelectors';
 
 class HomePage extends BasePage {
@@ -95,7 +96,7 @@ class HomePage extends BasePage {
    }
 
    clickOnCompanyLink() {
-      return getElementByXPath(COMPANY_LINK).click();
+      return getElement(COMPANY_LINK).click();
    }
 
    clickOnAboutUsLink() {
@@ -110,11 +111,11 @@ class HomePage extends BasePage {
       return getElement(FAQ_LINK).click();
    }
 
-   getHeader() {
-      return getElement(HEADER);
+   getPageHeader() {
+      return getElement(PAGE_HEADER);
    }
    clickOnDiscoverLink() {
-      return getElementByXPath(DISCOVER_LINK).click();
+      return getElement(DISCOVER_LINK).click();
    }
    clickOnBlogLink() {
       return getElement(BLOG_LINK).click();
@@ -138,15 +139,23 @@ class HomePage extends BasePage {
       return getElement(CURRENCY_DROPDOWN).click();
    }
    clickOnEurCurrency() {
-      return getElementByXPath(EUR_CURRENCY).click();
+      return getElement(EUR_CURRENCY).click();
+   }
+   clickOnBamCurrency() {
+      return getElement(BAM_CURRENCY).click();
    }
    clickOnLanguageDropdown() {
       return getElementByXPath(LANGUAGE_DROPDOWN).click();
    }
    clickOnEnglishLanguage() {
-      return getElementByXPath(ENGLISH_LANGUAGE).click();
+      return getElement(ENGLISH_LANGUAGE).click();
    }
-   getcurrencyDropdown() {
+
+   clickOnBosnianLanguage() {
+      return getElement(BOSNIAN_LANGUAGE).click();
+   }
+
+   getCurrencyDropdown() {
       return getElement(CURRENCY_DROPDOWN);
    }
    getLanguageDropdown() {

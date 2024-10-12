@@ -1,57 +1,48 @@
 import HomePage from "../../pageObjects/HomePage";
-import LoginPage from "../../pageObjects/LoginPage";
-import MyTransfersPage from "../../pageObjects/MyTransfersPage";
 import SearchResultsPage from "../../pageObjects/SearchResultsPage";
+import {verifyDiscoveredLinkAndPageHeader} from '../../utils/cyUtils'; // Import helper functions
 const data = require('../../data/balkanTransferData.json');
 
 describe('Regression User Side Test Suite', () => {
     const homePage = new HomePage();
     const searchResultsPage = new SearchResultsPage();
 
-    it('should check links on the homepage', () => {
+    beforeEach(() => {
         homePage.visitHomePage();
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnLanguageDropdown, homePage.clickOnEnglishLanguage, homePage.getLanguageDropdown,'ENG');
         homePage.getWelcomeHeader().should('contain.text', 'Welcome');
-        homePage.clickOnCompanyLink();
-        homePage.clickOnAboutUsLink();
-        homePage.getHeader().should('contain.text', 'About us');
-        homePage.clickOnCompanyLink();
-        homePage.clickOnSafetyAndQualityLink();
-        homePage.getHeader().should('contain.text', 'Safety and quality');
-        homePage.clickOnCompanyLink();
-        homePage.clickOnFaqLink();
-        homePage.getHeader().should('contain.text', 'Frequently asked questions');
-        homePage.clickOnHomeLink();
-    });
-    it('should check links under Discover dropdown on the homepage', () => {
-        homePage.clickOnDiscoverLink();
-        homePage.clickOnBlogLink();
-        homePage.getBlogHeader().should('contain.text', 'Blog');
-        homePage.clickOnDiscoverLink();
-        homePage.clickOnTransfersLink();
-        homePage.getBlogHeader().should('contain.text', 'Transfers');
-        homePage.clickOnDiscoverLink();
-        homePage.clickOnDestinationsLink();
-        homePage.getBlogHeader().should('contain.text', 'Destinations');
-    });
-    it('should check Offers and news link on the homepage', () => {
-        homePage.clickOnOffersAndNewsLink();
-        homePage.getOffersNewsHeader().should('contain.text', 'Offers & News');
     });
 
-    it('should check currency dropdown on the homepage', () => {
-        homePage.clickOnCurrencyDropdown();
-        homePage.clickOnEurCurrency();
-        homePage.getcurrencyDropdown().should('contain.text', 'Euro');
-    });
-    it('should check language dropdown on the homepage', () => {
-        homePage.clickOnLanguageDropdown();
-        homePage.clickOnEnglishLanguage();
-        homePage.getLanguageDropdown().should('contain.text', 'ENG');
+    // Verify all Company-related links on the homepage
+    it('should verify all Company-related links on the homepage', () => {
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnCompanyLink, homePage.clickOnAboutUsLink, homePage.getPageHeader, 'About us');
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnCompanyLink, homePage.clickOnSafetyAndQualityLink, homePage.getPageHeader, 'Safety and quality');
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnCompanyLink, homePage.clickOnFaqLink, homePage.getPageHeader, 'Frequently asked questions');
     });
 
-    it('should populate from and to fields', () => {
-        homePage.visitHomePage();
-        homePage.getWelcomeHeader().should('contain.text', 'Welcome');
+    // Verify all Discover-related links on the homepage
+    it('should verify all Discover-related links on the homepage', () => {
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnDiscoverLink, homePage.clickOnBlogLink, homePage.getPageHeader, 'Blog');
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnDiscoverLink, homePage.clickOnTransfersLink, homePage.getPageHeader, 'Transfers');
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnDiscoverLink, homePage.clickOnDestinationsLink, homePage.getPageHeader, 'Destinations');
+    });
+
+    it('should check Offers and News link on the homepage', () => {
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnOffersAndNewsLink, homePage.getOffersNewsHeader, homePage.getPageHeader, 'Offers & News');
+    });
+
+    it('should verify the currency dropdown on the homepage', () => {
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnCurrencyDropdown, homePage.clickOnEurCurrency, homePage.getCurrencyDropdown,'Euro');
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnCurrencyDropdown, homePage.clickOnBamCurrency, homePage.getCurrencyDropdown,'Bosnian convertible mark');
+    });
+
+    it('should verify the language dropdown on the homepage', () => {
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnLanguageDropdown, homePage.clickOnEnglishLanguage, homePage.getLanguageDropdown,'ENG');
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnLanguageDropdown, homePage.clickOnBosnianLanguage, homePage.getLanguageDropdown,'BOS');
+        verifyDiscoveredLinkAndPageHeader(homePage, homePage.clickOnLanguageDropdown, homePage.clickOnEnglishLanguage, homePage.getLanguageDropdown,'ENG');
+    });
+
+    it('should populate from and to fields add pick-up address, should verify search results and query data', () => {
         homePage.enterFromLocationIntoSearchForm(data.searchFormData.from);
         homePage.selectDropDownFrom();
         homePage.enterToLocationIntoSearchForm(data.searchFormData.to);
@@ -59,18 +50,15 @@ describe('Regression User Side Test Suite', () => {
         homePage.clickOnDate();
         homePage.selectDay();
         homePage.clickOnSearchButton();
-    });
-    it('should add pick-up address', () => {
         searchResultsPage.visitSearchResultPage();
-        searchResultsPage.getSearchResultsHeader().should('be.visible').should('contain', 'Select your pick-up address');
+        searchResultsPage.getSearchResultsHeader()
+            .should('be.visible')
+            .should('contain', 'Select your pick-up address');
         searchResultsPage.insertPickupAddress(data.pickupAddress.pickupAddress);
         searchResultsPage.getPickupDropdown();
         searchResultsPage.clickOnConfirmButton();
-    });
-    it('should verify search results are displayed and the search query is correct', () => {
+
         searchResultsPage.getSearchQueryHeader().contains(data.searchFormData.from);
         searchResultsPage.getSearchQueryHeader().contains(data.searchFormData.to);
     });
-
 });
-

@@ -2,24 +2,21 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-      setupNodeEvents(on, config) {
+    setupNodeEvents(on, config) {
+      // Add custom event listeners here
     },
     chromeWebSecurity: false,
     testIsolation: false,
     baseUrl: 'https://staging.balkantransfer.com/'
   },
-  reporter: 'mocha-multi-reporters',
+  reporter: 'cypress-multi-reporters',
   reporterOptions: {
-    reporterEnabled: 'mochawesome, mocha-junit-reporter',
+    reporterEnabled: 'mochawesome',
     mochawesomeReporterOptions: {
       reportDir: 'cypress/reports',
       overwrite: false,
-      html: false,
-      json: true
-    },
-    mochaJunitReporterReporterOptions: {
-      mochaFile: 'cypress/reports/junit/test-results-[hash].xml',
-      toConsole: true
+      html: true,  // Generates an HTML report
+      json: true   // Generates a JSON report
     }
-  },
+  }
 });

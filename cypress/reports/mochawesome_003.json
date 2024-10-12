@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-10-12T15:48:25.395Z",
-    "end": "2024-10-12T15:48:28.718Z",
-    "duration": 3323,
+    "start": "2024-10-12T15:57:16.042Z",
+    "end": "2024-10-12T15:57:19.148Z",
+    "duration": 3106,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "02454b06-8c82-45d6-8f7f-5c48966f4bc4",
+      "uuid": "dedeec2e-4be0-4004-bee7-3cc3f7a1c428",
       "title": "",
       "fullFile": "cypress/e2e/regression/regressionUser.cy.js",
       "file": "cypress/e2e/regression/regressionUser.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "00bcbc3b-c21b-4b92-8b8b-c46ebd164fb8",
+          "uuid": "5cb734ec-983a-4573-b46f-195c788d42a4",
           "title": "Regression User Side Test Suite",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should check links on the homepage",
               "fullTitle": "Regression User Side Test Suite should check links on the homepage",
               "timedOut": null,
-              "duration": 3280,
+              "duration": 3067,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "homePage.visitHomePage();\nhomePage.getWelcomeHeader().should('contain.text', 'Welcome');\nhomePage.clickOnCompanyLink();\nhomePage.clickOnAboutUsLink();\nhomePage.getHeader().should('contain.text', 'About us');\nhomePage.clickOnCompanyLink();\nhomePage.clickOnSafetyAndQualityLink();\nhomePage.getHeader().should('contain.text', 'Safety and quality');\nhomePage.clickOnCompanyLink();\nhomePage.clickOnFaqLink();\nhomePage.getHeader().should('contain.text', 'Frequently asked questions');\nhomePage.clickOnHomeLink();",
               "err": {},
-              "uuid": "594b9689-4bbc-42e8-8d2c-175ed1f34714",
-              "parentUUID": "00bcbc3b-c21b-4b92-8b8b-c46ebd164fb8",
+              "uuid": "5c66ef38-0959-48eb-9f22-a132baf237b2",
+              "parentUUID": "5cb734ec-983a-4573-b46f-195c788d42a4",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "594b9689-4bbc-42e8-8d2c-175ed1f34714"
+            "5c66ef38-0959-48eb-9f22-a132baf237b2"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3280,
+          "duration": 3067,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
