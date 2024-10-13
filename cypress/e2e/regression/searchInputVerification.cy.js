@@ -32,7 +32,7 @@ describe('Regression User Side Test Suite', () => {
         searchResultsPage.getSearchQueryHeader().contains(data.searchFormData.from);
         searchResultsPage.getSearchQueryHeader().contains(data.searchFormData.to);
         searchResultsPage.getSearchResultsHeader().should('be.visible').and('contain', 'Search results');
-        cy.wait(2000);
+        cy.wait(3000);
         searchResultsPage.getRandomItemClickedOnSearchResults();
         searchResultsPage.clickOnBookTripButton();
         searchResultsPage.getRandomTableRowClickedOnFlightSearchResults();

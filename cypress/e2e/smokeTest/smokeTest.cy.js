@@ -19,6 +19,7 @@ describe('Smoke Test Suite', () => {
     it('should login', () => {
         loginPage.visitLoginPage();
         loginPage.loginToPage(data.loginCredentials.email, data.loginCredentials.password);
+        cy.wait(2000)
     });
 
     it('should populate from and to fields', () => {
@@ -26,8 +27,10 @@ describe('Smoke Test Suite', () => {
         homePage.getWelcomeHeader().should('contain.text', 'Welcome');
         homePage.enterFromLocationIntoSearchForm(data.searchFormData.from);
         homePage.selectDropDownFrom();
-        homePage.enterToLocationIntoSearchForm(data.searchFormData.to);
+        cy.wait(2000);
+        homePage.enterToLocationIntoSearchTo(data.searchFormData.to);
         homePage.selectDropdownTo();
+        cy.wait(2000);
         homePage.clickOnDate();
         homePage.selectDay();
         homePage.clickOnSearchButton();
@@ -41,20 +44,23 @@ describe('Smoke Test Suite', () => {
         searchResultsPage.clickOnConfirmButton();
 
 
-        searchResultsPage.clickOnRouteList();
-        searchResultsPage.clickOnBookTripOnSearchResultButton();
-        searchResultsPage.getHeader().should('contain.text', 'Flight number');
-        searchResultsPage.clickOnSelectFlightButton();
+        searchResultsPage.getSearchResultsHeader().should('be.visible').and('contain', 'Search results');
+        cy.wait(4000);
+        searchResultsPage.getRandomItemClickedOnSearchResults();
+        searchResultsPage.clickOnBookTripButton();
+        searchResultsPage.getRandomTableRowClickedOnFlightSearchResults();
         searchResultsPage.clickOnBookTripButton();
     })
     it('should verify checkout process go without problem', () => {
         searchResultsPage.getHeader().should('contain.text', 'Checkout');
+        cy.wait(2000);
         searchResultsPage.clickOnNextStepCheckout();
         searchResultsPage.getNoExtrasInfo().should('contain.text', 'No extras available for selected trip.');
         searchResultsPage.clickOnNextStepCheckout();
         searchResultsPage.getTermsAndConditions().should('contain.text', 'By proceeding with the payment you agree to the Terms and Conditions');
         searchResultsPage.checkPayInCashRadioButton();
         searchResultsPage.clickOnNextStepCheckout();
+        cy.wait(7000);
         searchResultsPage.getBookingConfirmation().should('contain.text', 'is confirmed');
 
     });
@@ -66,7 +72,7 @@ describe('Smoke Test Suite', () => {
         myTransfersPage.clickOnConfirmButtonCancelReservation();
     });
     it('should logout from the user account', () => {
-        cy.wait(5000);
+        cy.wait(3000);
         homePage.clickUserButton();
         homePage.clickOnLogoutButton();
     });
