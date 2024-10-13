@@ -1,5 +1,5 @@
 import BasePage from './BasePage';
-import { getElement, getElementByXPath, getEnabledButton } from '../utils/cyUtils';
+import { getElement, getElementByXPath, getEnabledButton, getElementByMessage } from '../utils/cyUtils';
 import {
     SEARCH_RESULTS_HEADER,
     ROUTE_LIST,
@@ -17,7 +17,12 @@ import {
     PICKUP_DROPDOWN,
     CONFIRM_BUTTON,
     SEARCH_QUERY_HEADER,
-
+    SEARCH_RESULT_LIST,
+    USER_INFO_PARAGRAPH_TEXT,
+    EMAIL_INPUT,
+    NEXT_BUTTON,
+    ERROR_MESSAGE,
+    PASSWORD_INPUT
 } from '../selectors/searchResultsPageSelectors';
 
 class SearchResultsPage extends BasePage {
@@ -52,11 +57,9 @@ class SearchResultsPage extends BasePage {
     getHeader() {
         return getElement(HEADER);
     }
-
     clickOnNextStepCheckout() {
-        return getEnabledButton(NEXT_STEP_CHECKOUT).click();
+        return getEnabledButton(NEXT_STEP_CHECKOUT, false).click();
     }
-
     getNoExtrasInfo() {
         return getElement(NO_EXTRAS_INFO);
     }
@@ -66,7 +69,7 @@ class SearchResultsPage extends BasePage {
     }
 
     checkPayInCashRadioButton() {
-        return getElement(PAY_IN_CASH_RADIO_BUTTON).check();
+        return getElement(PAY_IN_CASH_RADIO_BUTTON, false).check();
     }
 
     getBookingConfirmation() {
@@ -91,6 +94,65 @@ class SearchResultsPage extends BasePage {
     getSearchQueryHeader() {
         return getElementByXPath(SEARCH_QUERY_HEADER);
     }
+    getRandomItemClickedOnSearchResults() {
+        // Select all divs with the class 'MuiBox-root mui-0'
+        getElement('div.MuiBox-root.mui-0', false) // Adjust this selector if necessary to match the parent div class
+            .then((divs) => {
+                // Count the number of div elements
+                const count = divs.length;
+
+                // Check if there are any divs
+                if (count > 0) {
+                    // Generate a random index from the available div elements
+                    const randomIndex = Math.floor(Math.random() * count);
+
+                    // Log the index (optional)
+                    cy.log('Clicking div at index: ' + randomIndex);
+
+                    // Click the randomly selected div
+                    cy.wrap(divs[randomIndex]).click();
+                } else {
+                    // Log that no divs were found
+                    cy.log('No div elements found.');
+                }
+            });
+    }
+    getRandomTableRowClickedOnFlightSearchResults() {
+        getElement('table.MuiTable-root tbody tr', false)
+            .then((rows) => {
+                const rowCount = rows.length;
+                if (rowCount > 0) {
+                    const randomIndex = Math.floor(Math.random() * rowCount);
+                    cy.wrap(rows[randomIndex]).find('button').click();
+                } else {
+                    cy.log('No table rows found.');
+                }
+            });
+    };
+    verifyUserInformation() {
+        return getElement(USER_INFO_PARAGRAPH_TEXT);
+    }
+    getEmailInputField() {
+        return getElement(EMAIL_INPUT, false);
+    }
+    enterEmail(email) {
+        this.getEmailInputField().type(email, false);
+    }
+    getErrorMessage() {
+        return getElementByXPath(ERROR_MESSAGE);
+    }
+    clickOnNextButton() {
+        return getElement(NEXT_BUTTON).click();
+    }
+    getPasswordInputField() {
+        return getElement(PASSWORD_INPUT, false);
+    }
+    enterPassword(password) {
+        this.getPasswordInputField().type(password);
+    }
+
+
 }
+
 
 export default SearchResultsPage;

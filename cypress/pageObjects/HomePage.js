@@ -52,15 +52,23 @@ class HomePage extends BasePage {
    }
 
    selectDropDownFrom() {
-      return getElementByXPath(DROPDOWN_FROM).click();
+      // Ensure the dropdown is visible and interactable
+      return getElementByXPath(DROPDOWN_FROM)
+         .should('be.visible')
+         .should('have.css', 'pointer-events', 'auto')
+         .click({ force: true });
    }
 
-   enterToLocationIntoSearchForm(to) {
-      return getElement(TO_INPUT_FIELD).type(to);
+
+   enterToLocationIntoSearchTo(to) {
+      return getElement(TO_INPUT_FIELD, false).type(to);
    }
 
    selectDropdownTo() {
-      return getElementByXPath(DROPDOWN_TO).click();
+      return getElementByXPath(DROPDOWN_TO)
+         .should('be.visible')
+         .should('have.css', 'pointer-events', 'auto')
+         .click({ force: true });
    }
 
    clickOnDate() {

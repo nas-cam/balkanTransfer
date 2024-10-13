@@ -16,3 +16,9 @@ export const PICKUP_ADDRESS = "/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div
 export const PICKUP_DROPDOWN = '/html[1]/body[1]/div[2]/div[1]/ul[1]';
 export const CONFIRM_BUTTON = "/html[1]/body[1]/div[1]/main[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/button[2]/span[1]";
 export const SEARCH_QUERY_HEADER = "/html/body/div[1]/main/div/div[1]/div/div/div[2]/div[1]/div[1]/div";
+export const SEARCH_RESULT_LIST = '.mui-cibgx';
+export const USER_INFO_PARAGRAPH_TEXT = 'body > div.MuiBox-root.mui-19x385r > main > div > div.MuiContainer-root.MuiContainer-maxWidthXl.mui-1j6hcts > div > div > div > p';
+export const EMAIL_INPUT = 'input[type="email"]';
+export const ERROR_MESSAGE = '//*[@id=":r1l:-helper-text"]'
+export const NEXT_BUTTON = 'body > div.MuiBox-root.mui-19x385r > main > div > div.MuiContainer-root.MuiContainer-maxWidthXl.mui-1j6hcts > div > div > div > div.MuiBox-root.mui-1vfa8p7 > button';
+export const PASSWORD_INPUT = 'input[type="password"]';

@@ -17,6 +17,7 @@
   "invalidEmails": [
     "plainaddress",
     "@missingusername.com",
-    "username@.com"
+    "username@.com",
+    " "
   ]
 }
