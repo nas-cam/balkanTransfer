@@ -64,7 +64,7 @@ describe('Smoke Test Suite', () => {
         searchResultsPage.getBookingConfirmation().should('contain.text', 'is confirmed');
 
     });
-    it('should see the trasnfer and cancel it', () => {
+    it('should see the transfer and cancel it', () => {
         myTransfersPage.clickOnMyTransfersButton();
         myTransfersPage.getMyTransfersBody().should('contain.text', 'My transfers');
         myTransfersPage.clickOnTransferDialog();
