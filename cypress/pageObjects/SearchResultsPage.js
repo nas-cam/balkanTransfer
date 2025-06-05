@@ -136,7 +136,7 @@ class SearchResultsPage extends BasePage {
         return getElement(EMAIL_INPUT, false);
     }
     enterEmail(email) {
-        this.getEmailInputField().type(email, false);
+        this.getEmailInputField().type(email);
     }
     getErrorMessage() {
         return getElementByXPath(ERROR_MESSAGE);
